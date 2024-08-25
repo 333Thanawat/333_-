@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลส่วนบุคคล</title>
+    <style>
+        body {
+            font-family: 'Kanit', Arial, sans-serif;
+            background-color: #f0fff0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        nav {
+            background-color: #45a049;
+            padding: 0.5em;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            margin: 0 0.5em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #2e7d32;
+        }
+        .container {
+            max-width: 600px;
+            margin: 2em auto;
+            padding: 1em;
+        }
+        .personal-info {
+            background-color: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 50%;
+            margin: 1em auto;
+            display: block;
+            border: 3px solid #ffffff;
+        }
+        h2 {
+            color: #000000;
+            margin-bottom: 1em;
+        }
+        .info-item {
+            margin-bottom: 0.8em;
+            font-size: 1.1em;
+        }
+        .info-item strong {
+            color: #4CAF50;
+            margin-right: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ข้อมูลส่วนบุคคล</h1>
+    </header>
+    <nav>
+        <a href="index.html">หน้าหลัก</a>
+        <a href="class_details.html">รายละเอียดรุ่น</a>
+    </nav>
+    <div class="container">
+        <div class="personal-info">
+            <h2 id="studentName">ชื่อ-นามสกุล</h2>
+            <img id="studentImage" src="" alt="รูปภาพนักศึกษา">
+            <div class="info-item"><strong>รหัสนักศึกษา:</strong> <span id="studentId"></span></div>
+            <div class="info-item"><strong>ชั้นปี:</strong> <span id="studentYear"></span></div>
+            <div class="info-item"><strong>สาขาวิชา:</strong> <span id="studentMajor"></span></div>
+            <div class="info-item"><strong>อีเมล:</strong> <span id="studentEmail"></span></div>
+        </div>
+    </div>
+
+    <script>
+        const students = {
+            1: {
+                name: "นาย เกรดดี ดีใจ",
+                id: "6604101333",
+                year: "2",
+                major: "วิทยาการคอมพิวเตอร์",
+                email: "fewza2748@gmail.com",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv-C-x2uINwbFQkidtoQ2tRg_o056BNmgeEw&s"
+            },
+            2: {
+                name: "นาง สาวสมชาย พ่อเพื่อน",
+                id: "6007654321",
+                year: "3",
+                major: "วิทยาการคอมพิวเตอร์",
+                email: "somchai@gmail.com",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv-C-x2uINwbFQkidtoQ2tRg_o056BNmgeEw&s"
+            },
+            3: {
+                name: "นาย มานะ มาแน่",
+                id: "6009876543",
+                year: "3",
+                major: "เทคโนโลยีสารสนเทศ",
+                email: "mana@gmail.com",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv-C-x2uINwbFQkidtoQ2tRg_o056BNmgeEw&s"
+            }
+        };
+
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        const studentId = getParameterByName('id');
+        
+        if (studentId && students[studentId]) {
+            const student = students[studentId];
+            document.getElementById('studentName').textContent = student.name;
+            document.getElementById('studentId').textContent = student.id;
+            document.getElementById('studentYear').textContent = student.year;
+            document.getElementById('studentMajor').textContent = student.major;
+            document.getElementById('studentEmail').textContent = student.email;
+            document.getElementById('studentImage').src = student.image;
+        } else {
+            document.querySelector('.personal-info').innerHTML = '<h2>ไม่พบข้อมูลนักศึกษา</h2>';
+        }
+    </script>
+</body>
+</html>

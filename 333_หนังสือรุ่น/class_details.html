@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดรุ่น</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0fff0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        nav {
+            background-color: #45a049;
+            padding: 0.5em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5em 1em;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1em;
+        }
+        .class-info {
+            background-color: white;
+            padding: 1em;
+            border-radius: 5px;
+            margin-bottom: 1em;
+        }
+        .student-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .student-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5em 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>รายละเอียดรุ่น</h1>
+    </header>
+    <nav>
+        <a href="index.html">หน้าหลัก</a>
+        </a>
+    </nav>
+    <div class="container">
+        <div class="class-info">
+            <h2>รุ่นที่ 1</h2>
+            <ul class="student-list">
+                <li class="student-item">
+                    <span>นายสมชาย ใจดี</span>
+                    <a href="personal_info.html?id=1" class="btn">ดูข้อมูลส่วนตัว</a>
+                </li>
+                <li class="student-item">
+                    <span>นางสาวสมหญิง รักเรียน</span>
+                    <a href="personal_info.html?id=2" class="btn">ดูข้อมูลส่วนตัว</a>
+                </li>
+                <li class="student-item">
+                    <span>นายมานะ อดทน</span>
+                    <a href="personal_info.html?id=3" class="btn">ดูข้อมูลส่วนตัว</a>
+                </li>
+            </ul>
+        </div>
+        <!-- เพิ่มรุ่นอื่น ๆ ตามต้องการ -->
+    </div>
+</body>
+</html>
